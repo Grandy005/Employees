@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Employees
 {
+    //Class for storing employees datas
     class Employee 
     {
         private int id;
@@ -31,7 +33,19 @@ namespace Employees
     {
         static void Main(string[] args)
         {
-            
+            //List for storing employee objects
+            List<Employee> employees = new List<Employee>();
+
+            //Reading txt data
+            string[] lines = File.ReadAllLines("tulajdonsagok_100sor.txt");
+
+            //Creating employee objects and adding them to the list
+            foreach (var line in lines)
+            {
+                string[] splitLine = line.Split(';');
+                Employee employee = new Employee(int.Parse(splitLine[0]), splitLine[1], int.Parse(splitLine[2]), int.Parse(splitLine[3]));
+                employees.Add(employee);
+            }
         }
     }
 }
