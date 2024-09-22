@@ -45,6 +45,8 @@ namespace Employees
                 string[] splitLine = line.Split(';');
                 Employee employee = new Employee(int.Parse(splitLine[0]), splitLine[1], int.Parse(splitLine[2]), int.Parse(splitLine[3]));
                 employees.Add(employee);
+                //Writing every employees name to console
+                Console.WriteLine($"{employee.Name}");
             }
         }
     }
