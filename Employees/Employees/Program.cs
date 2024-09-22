@@ -57,6 +57,9 @@ namespace Employees
             //Writing the employees who have 10 years left to retire to console
             Console.WriteLine("\nAlkalmazottak akiknek 10 évük van a nyugdíjig:\n");
             employees.Where(x => x.Age == 55).ToList().ForEach(x => Console.WriteLine(x.Name));
+
+            //Counting how many employee has a salary over 50000 HUF
+            Console.WriteLine($"\n{employees.Count(x => x.Salary > 50000)} db alkalmazott keres 50000 Ft felett.\n");
         }
     }
 }
