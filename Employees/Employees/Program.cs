@@ -40,6 +40,7 @@ namespace Employees
             string[] lines = File.ReadAllLines("tulajdonsagok_100sor.txt");
 
             //Creating employee objects and adding them to the list
+            Console.WriteLine("Összes alkalmazott neve:\n");
             foreach (var line in lines)
             {
                 string[] splitLine = line.Split(';');
@@ -50,8 +51,12 @@ namespace Employees
             }
 
             //Writing the top 3 salaries to console
-            Console.WriteLine();
+            Console.WriteLine("\nTop 3 keresettel rendelkező alkalmazott neve, id-ja:\n");
             employees.OrderByDescending(x => x.Salary).Take(3).ToList().ForEach(x => Console.WriteLine($"{x.Name}, {x.Id}"));
+
+            //Writing the employees who have 10 years left to retire to console
+            Console.WriteLine("\nAlkalmazottak akiknek 10 évük van a nyugdíjig:\n");
+            employees.Where(x => x.Age == 55).ToList().ForEach(x => Console.WriteLine(x.Name));
         }
     }
 }
