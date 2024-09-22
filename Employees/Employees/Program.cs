@@ -48,6 +48,10 @@ namespace Employees
                 //Writing every employees name to console
                 Console.WriteLine($"{employee.Name}");
             }
+
+            //Writing the top 3 salaries to console
+            Console.WriteLine();
+            employees.OrderByDescending(x => x.Salary).Take(3).ToList().ForEach(x => Console.WriteLine($"{x.Name}, {x.Id}"));
         }
     }
 }
